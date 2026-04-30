@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Petrol Calculator</title>
+
+    <style>
+
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Main calculator container */
+        .container {
+            background-color: white;
+
+            padding: 30px;
+            border-radius: 15px;
+
+            width: 320px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Heading style */
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+        }
+
+        /* Labels */
+        label {
+            display: block;
+
+            margin-top: 15px;
+            margin-bottom: 5px;
+
+            font-weight: bold;
+        }
+
+        /* Input fields */
+        input {
+            width: 100%;
+            padding: 10px;
+
+            border: 2px solid #ccc;
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        /* Focus effect */
+        input:focus {
+            border-color: #2a5298;
+            outline: none;
+
+            box-shadow: 0 0 8px rgba(42,82,152,0.4);
+        }
+
+        /* Button styling */
+        button {
+            width: 100%;
+
+            padding: 12px;
+            margin-top: 20px;
+
+            background-color: #2a5298;
+            color: white;
+
+            border: none;
+            border-radius: 8px;
+
+            font-size: 16px;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        /* Hover effect */
+        button:hover {
+            background-color: #1e3c72;
+            transform: scale(1.03);
+        }
+
+        /* Result paragraph */
+        #result {
+            margin-top: 20px;
+
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main container -->
+    <div class="container">
+
+        <!-- Title -->
+        <h1>Petrol Calculator</h1>
+
+        <!-- Petrol cost input -->
+        <label for="price">Cost per Liter (£)</label>
+        <input type="number" id="price" value="1.72" step="0.01">
+
+        <!-- Liters purchased input -->
+        <label for="liters">Liters Purchased</label>
+        <input type="number" id="liters" value="0" step="0.1">
+
+        <!-- Calculate button -->
+        <button onclick="calculateTotal()">
+            Calculate Total
+        </button>
+
+        <!-- Result display -->
+        <p id="result">Total Cost: £0.00</p>
+
+    </div>
+
+    <script>
+
+        // Function to calculate total petrol cost
+        function calculateTotal() {
+
+            // Get petrol price
+            let price = document.getElementById("price").value;
+
+            // Get liters purchased
+            let liters = document.getElementById("liters").value;
+
+            // Calculate total
+            let total = price * liters;
+
+            // Display result
+            document.getElementById("result").innerText =
+                "Total Cost: £" + total.toFixed(2);
+        }
+
+    </script>
+
+</body>
+</html>
